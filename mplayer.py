@@ -43,7 +43,7 @@ def play_songs(*, name = "", volume = 0):
         for one_song in lst:
             time.sleep(2)
             echo_time(volume)
-            tell_weather(city = "郑州", volume = volume)
+            tell_weather(city = "北京", volume = volume)
             time.sleep(1)
             play_cmd = "mplayer -volume {} {}\"{}\"".format(volume, song_dir, one_song.strip())
             logger.info(play_cmd)
@@ -52,7 +52,7 @@ def play_songs(*, name = "", volume = 0):
 
 def tell_weather(city = "北京", volume = 0):
     weather_str = get_weather_str(city = city)
-    logger.info("{}:{}".format(city, weather_str))
+    logger.info("{}".format(city, weather_str))
 
     echo_str(volume = volume, text = weather_str)
 

@@ -44,7 +44,7 @@ def get_weather_str(*, city = ""):
 
             wind_str = "{}, {}级".format(wind_dir, wind_sc.replace("-", "到"))
 
-            weather_str = "{}, {}, {}, {}℃ 到 {}℃".format(city, cond_str, wind_str, min_temp, max_temp)
+            weather_str = "{}, {}。 {}。 {}℃ 到 {}℃".format(city, cond_str, wind_str, min_temp, max_temp)
             logger.info(weather_str)
     else:
         weather_str = "无法获取天气信息"

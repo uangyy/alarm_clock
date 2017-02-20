@@ -14,6 +14,7 @@ import logger, logging
 random.seed(time.time())
 
 song_dir = "/root/Music/songs/"
+#song_dir = "/home/parallels/Music/alarm_clock/songs/"
 
 DEFAULT = 0
 RANDOM = 1
@@ -42,7 +43,7 @@ def play_songs(*, name = "", volume = 0):
         for one_song in lst:
             time.sleep(2)
             echo_time(volume)
-            tell_weather(city = "北京", volume = volume)
+            tell_weather(city = "郑州", volume = volume)
             time.sleep(1)
             play_cmd = "mplayer -volume {} {}\"{}\"".format(volume, song_dir, one_song.strip())
             logger.info(play_cmd)

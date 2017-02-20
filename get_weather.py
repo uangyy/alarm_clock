@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def get_weather_str(*, city = ""):
     if not city or not city_dict.get(city):
-        print("not valid city:{}".format(city))
+        logger.warning("not valid city:{}".format(city))
 
     weather_info = get_weather(city_dict[city])
 
@@ -44,7 +44,7 @@ def get_weather_str(*, city = ""):
 
             wind_str = "{}, {}级".format(wind_dir, wind_sc.replace("-", "到"))
 
-            weather_str = "{}, {}, {}, {} 到 {}℃".format(city, cond_str, wind_str, min_temp, max_temp)
+            weather_str = "{}, {}。 {}。 {}℃ 到 {}℃".format(city, cond_str, wind_str, min_temp, max_temp)
             logger.info(weather_str)
     else:
         weather_str = "无法获取天气信息"
@@ -64,7 +64,7 @@ def get_weather(city_no):
     weather_info = ""
     try:
         weather_info = requests.get(url, timeout = 5).content
-        print(weather_info)
+        logger.info(weather_info)
         #print(type(weather_info))
     except:
         pass
@@ -75,4 +75,4 @@ def get_weather(city_no):
         return ""
 
 
-get_weather_str(city = "北京")
+#get_weather_str(city = "北京")
